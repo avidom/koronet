@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>kor_640x400</title>
+<!-- write your code here -->
+
+</head>
+<body onload="init();">
+
+<style type="text/css">
+        html, body {
+            margin: 0 0 0 0;
+        }
+</style>
+    
+<script type="text/javascript" data-r="admixer" data-main="https://cdn.admixer.net/scripts3/r/require-html5" src="https://cdn.admixer.net/scripts3/require.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Rokkitt:900" rel="stylesheet">
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/createjs_2015.11.26_54e1c3722102182bb133912ad4442e19_min.js"></script>
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_1.19.0_643d6911392a3398cb1607993edabfa7_min.js"></script>
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/timelinemax_1.19.0_4cba7b163d6263b39d53727ed4c7bb6f_min.js"></script>
+<script type="text/javascript" src="js/body.js"></script>
+<script src="kor_640x400.js"></script>
+<script>
+var canvas, stage, exportRoot;
+function init() {
+	// --- write your JS code here ---
+	
+	canvas = document.getElementById("canvas");
+	images = images||{};
+
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.loadManifest(lib.properties.manifest);
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function handleComplete(evt) {
+	exportRoot = new lib.kor_640x400();
+
+	stage = new createjs.Stage(canvas);
+	stage.addChild(exportRoot);
+	stage.update();
+	stage.enableMouseOver();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage);
+}
+
+</script>
+
+
+
+  <div id="bannerPlace" style="position: absolute; right: 50%; margin-right: -120px; top: 0; width: 240px; height: 400px; overflow: hidden">
+	<canvas id="canvas" width="640" height="400" style="background-color:#FFFFFF"></canvas>
+	</div>
+</body>
+</html>
