@@ -3196,7 +3196,7 @@ if (loop == null) { loop = false; }	this.initialize(mode,startPosition,loop,{});
 			TweenMax.set(w.rolik, {x:-200});
 			w.btn_switch2.removeEventListener("click", mov2);
 			document.getElementById("bannerPlace").style.width = "240px";
-			document.getElementById("bannerPlace").style.margin = "0";
+			document.getElementById("bannerPlace").style.margin = "0 -120px 0 0";
 			tr.play();
 			w.btn_switch1.addEventListener("click", mov);
 		}
